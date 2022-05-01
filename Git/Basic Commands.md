@@ -47,8 +47,26 @@ git commit -m "my message"
 ```
 The **-m** flag allows us pass in an inline commit message, rather than launching a text editor.
 
+## Configuring Git's Default Editor
+Open up a text editor only when we need to write a long message.<br>
+For example, use VScode:
+```
+git config --global core.editor "code --wait"
+```
+**Note:** We might need to install "code" command in path in VScode.
+
+## Atomic Commits
+Try to keep each commit focused on a single thing.<br>
+This makes it easier to undo or roolback changes later on. It also makes your code or project easier to review.
+
 ## Log
 ```
 git log
 ```
-
+```
+git log --pretty=oneline
+```
+```
+git log --pretty=oneline --abbrev-commit
+git log --oneline
+```
