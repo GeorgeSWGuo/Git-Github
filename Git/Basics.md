@@ -1,4 +1,4 @@
-# Basic Commands about Git
+# Basics about Git
 
 ## Status
 **git status** gives information on the current status of a git repository and its contents.
