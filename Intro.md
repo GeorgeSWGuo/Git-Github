@@ -27,4 +27,6 @@ git check configuration settings:
 git config --list
 ```
 
+## Repository
+A Git **Repo** is a workspace which tracks and manages files within a folder. Anytime we want to use Git we need to creat a new git repository.
 
