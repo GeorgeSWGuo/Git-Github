@@ -59,6 +59,13 @@ git config --global core.editor "code --wait"
 Try to keep each commit focused on a single thing.<br>
 This makes it easier to undo or roolback changes later on. It also makes your code or project easier to review.
 
+## Amending Commits
+Suppose we made a typo in the commit message that we want to correct. Or we realized that we forgot to include a file in the last commit.<br>
+Rather than making a brand new separate commit, we can "redo" the previous commit using the **--amend** option.
+```
+git commit --amend
+```
+
 ## Log
 ```
 git log
@@ -70,3 +77,15 @@ git log --pretty=oneline
 git log --pretty=oneline --abbrev-commit
 git log --oneline
 ```
+
+## Ignoring Files
+We can tell Git which files and directories to ignore in a given directory, using a **.gitignore** file.
+This is useful for files that we never want to commit.<br>
+Create a file called **.gitignore** in the root of a repository. Inside the file, we can write patterns to tell Git which files & folders to ignore, for example:
+- folderName/
+- fileName
+- .DS_Store
+- *.log
+
+## Git GUI
+**GitKraken**
