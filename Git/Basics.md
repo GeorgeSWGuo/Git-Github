@@ -46,6 +46,10 @@ Running **git commit** will open up a text editor and prompt you for a commit me
 git commit -m "my message"
 ```
 The **-m** flag allows us pass in an inline commit message, rather than launching a text editor.
+```
+git commit -a -m "my message"
+```
+Add and commit.
 
 ## Configuring Git's Default Editor
 Open up a text editor only when we need to write a long message.<br>
