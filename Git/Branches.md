@@ -28,8 +28,9 @@ git checkout <branch-name>
 The **checkout** command is another way of switching, but it also does a million additional things.
 ```
 git switch -c <branch-name>
+git checkout -b <branch-name>
 ```
-Use **git switch** with the **-c** flag to create a new branch and switch to it all in one go.
+Use **git switch** with the **-c** flag to create a new branch and switch to it all in one go. Similarly using **checkout -b**.
 
 ## Switching Branches with Unstaged Changes
 
