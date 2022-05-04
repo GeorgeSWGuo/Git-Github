@@ -52,4 +52,41 @@ git branch --move <new-name>
 ```
 Before renaming, we need to **switch to that branch first**.
 
+## Merging
+Very often we want to incorporate changes from one branch into another.<br>
+<br>
+**Note that:**
+- We merge branches, not specific commits
+- We always merge to the current Head branch
+
+To merge, we need to <br>
+1. Switch to the branch we want to merge the changes into
+2. Use the **git merge** command to merge changes from a specific branch into the current branch
+```
+git switch master
+git merge branch1
+```
+**Fast Forward**<br>
+Simply caught up<br>
+<br>
+**Not Fast Forward**<br>
+Rather than performing a simple fast forward, Git performs a "merge commit" .<br>
+We end up with **a new commit** on the master branch.
+- No Conflict
+- Conflict
+
+## Conflicts
+Depending on the specific changes you are trying to merge, Git may not be able to automatically merge.<br>
+This results in **merge conflicts**, which you need to manually resolve.<br>
+<br>
+The content from your current Head (the branch you are trying to merge content into) is displayed: <br>
+between the <<<<<<< HEAD and ======= <br>
+The content from the branch you are trying to merge from is displayed: <br>
+between the ======= and >>>>>>> symbols <br>
+<br>
+**Resolving Conflicts**
+1. Open up the files with merge conflicts.
+2. Edit the files to remove the conflicts.
+3. Remove the conflict "markers" in the document.
+4. Add your changes and then make a commit.
 
