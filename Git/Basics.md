@@ -48,6 +48,7 @@ git commit -m "my message"
 The **-m** flag allows us pass in an inline commit message, rather than launching a text editor.
 ```
 git commit -a -m "my message"
+git commit -am "my message"
 ```
 Add and commit.
 
