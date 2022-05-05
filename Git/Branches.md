@@ -91,3 +91,30 @@ between the ======= and >>>>>>> symbols <br>
 3. Remove the conflict "markers" in the document.
 4. Add your changes and then make a commit.
 
+## Diffs
+We can use the **git diff** command to view changes between commits, branches, files, our working directory, et al.
+```
+git diff
+git diff HEAD
+git diff -- staged
+git diff --cached
+```
+Without additional options, **git diff** lists all the changes in our working directory that are not staged for the next commit.<br>
+**git diff HEAD** lists all changes in the working tree since your last commit, including **both staged and unstaged**.<br>
+**git diff --staged** or **git diff --cached** will list the changes between the staging area and our last commit.<br>
+```
+git diff HEAD <filename>
+git diff --staged <filename>
+```
+We can view the changes within a specific file by providing git diff with a filename.<br>
+```
+git diff <branch1>..<branch2>
+git diff <commit1hashes>..<commit2hashes>
+```
+Compare two branches and compare two commits.<br>
+<br>
+**Compared Files:**<br>
+For each comparison, Git explains which files it is comparing. Usually this is two versions of the same file. Git also declares one file as "A" and the other as "B". File A gets a **minus** sign (-). File B gets a **plus** sign (+).<br>
+A diff won't show the entire contents of a file, but instead only shows portion or "chunks" that were modified. A **chunk** also includes some unchanged lines before and after a change to provide some context.<br>
+
+
