@@ -117,4 +117,47 @@ Compare two branches and compare two commits.<br>
 For each comparison, Git explains which files it is comparing. Usually this is two versions of the same file. Git also declares one file as "A" and the other as "B". File A gets a **minus** sign (-). File B gets a **plus** sign (+).<br>
 A diff won't show the entire contents of a file, but instead only shows portion or "chunks" that were modified. A **chunk** also includes some unchanged lines before and after a change to provide some context.<br>
 
+## Stashing
+Consider a situation:<br>
+You do some new work, but don't make any commits. What happens when I switch back to master?<br>
+1. Your changes come with you to the destination branch
+2. Git won't let you switch if it detects potential conflicts
+
+**git stash** could help you save changes that you are not yet ready to commit. You can stash changes and then come back to them later.<br>
+Running git stash will take all uncommitted changes (staged and unstaged) and stash them, reverting the changes in your working copy.
+```
+git stash
+```
+If you have untracked files (files that you have never checked in to Git), they will not be included in the stash. Fortunately, you can use the **-u** option to tell git stash to include those untracked files.
+```
+git stash -u
+```
+Use **git stash pop** to remove the most recently stashed changes in your stash and re-apply them to your working copy.
+```
+git stash pop
+```
+Use **git stash apply** to apply whatever is stashed away, without removing it from the stash. This can be useful if you want to apply stashed changes to multiple branches.
+```
+git stash apply
+```
+**stashing multiple times**<br>
+You can add multiple stashes onto the stack of stashes. They will all be stashed in the order you added them.<br>
+Run **git stash list** to view all stashes.
+```
+git stash list
+```
+**applying specific stashes**<br>
+Git assumes you want to apply the most recent stash when you run **git stash apply**, but you can also specify a particular stash like:
+```
+git stash apply stash@{2}
+```
+**dropping stashes**<br>
+To delete a particular stash, you can use:
+```
+git stash drop stash@{2}
+```
+To clear our all stashes, run:
+```
+git stash clear
+```
 
