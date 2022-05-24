@@ -96,7 +96,7 @@ We can use the **git diff** command to view changes between commits, branches, f
 ```
 git diff
 git diff HEAD
-git diff -- staged
+git diff --staged
 git diff --cached
 ```
 Without additional options, **git diff** lists all the changes in our working directory that are not staged for the next commit.<br>
