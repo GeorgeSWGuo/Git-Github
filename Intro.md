@@ -1,7 +1,7 @@
 # Introduction to Git & Github
 
 ## Birth of Git
-Linus Torvalds is the creator and main developer behind Linux and Git.<br>
+**Linus Torvalds** is the creator and main developer behind Linux and Git.<br>
 Birth year of Git: 2005
 
 ## Difference between Git and Github
