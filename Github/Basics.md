@@ -56,3 +56,15 @@ For example **git push origin master** tells git to push up the master branch to
 ```
 git push origin master
 ```
+While we often want to push a local branch up to a remote branch of the same name, we don't have to!<br>
+To push our local apple branch up to a remote branch called banana we could do:
+```
+git push origin apple:banana
+git push <remote> <local-branch>:<remote-branch>
+```
+The **-u** option allows us to set the upstream of the branch we're pushing. You can think of this as a link connecting our local branch to a branch on Github.
+```
+git push -u origin master
+git push --set-upstream origin master
+```
+Once we've set the upstream for a branch, we can use the **git push** shorthand which will push our current branch to the upstream.
