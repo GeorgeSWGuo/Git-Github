@@ -68,3 +68,34 @@ git push -u origin master
 git push --set-upstream origin master
 ```
 Once we've set the upstream for a branch, we can use the **git push** shorthand which will push our current branch to the upstream.
+
+## Remote Tracking Branch
+It is a reference to the state of the master branch on the remote. I can't move this myself. It's like a bookmark pointing to the last known commit on the master branch on origin.<br>
+<br>
+Once you've cloned a repository, we have all the data and Git history for the project at that moment in time. However, that does not mean it's all in your workspace.<br>
+Suppose he github repo has a branch called **pigs**, but when we run **git branch** we don't see it on our machine! All we see is the master branch.<br>
+```
+git branch
+:*master
+```
+Run **git branch -r** to view the remote branches our local repository knows about.
+```
+git branch -r
+:origin/master
+:origin/pigs
+```
+By default, my master branch is already tracking origin/master. What if I want my own local branch called **pigs**, and I want it to be connected to **origin/pigs**. just like my local **master** branch is connected to **origin/master**.<br>
+Run **git switch remote-branch-name** to create a new local branch from the remote branch of the same name. It will make me a local pigs branch and sets it up to **track the remote branch origin/pigs**.
+```
+git switch <remote-branch-name>
+git switch pigs
+```
+Use **git checkout** is slightly more complicated.
+```
+git checkout --track origin/pigs
+```
+
+## Git Fetch
+Fetching allows us to download changes from a remote repo, but those changes will not be automatically integrated into our working files. It lets you see what others have been working on, without having to merge those changes into your local repo.
+
+
