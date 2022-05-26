@@ -53,3 +53,30 @@ The **work flow**:
 
 Just like any other merge, **sometimes there are conflicts** that need to be resolved when merging a pull request. You can perform the merge and fix the conflicts on the command line like normal, or you can use Github's interactive editor. <br>
 **Github gives you instructions** if you forget what to do!
+
+## Configuring Branch Protection Rules
+> Settings -> Branches -> Branch protection rules
+
+## Forking
+Github allow us to create personal copies of other peoples' repos. We call those copies a "fork" of the original. As with pull requests, forking is not a Git feature. The ability to fork is implemented by Github.<br>
+
+## Fork & Clone Workflow
+Instead of just one centralized Github repo, every developer has their own Github repository in addition to the "main" repo. Developers make changes and push to their own forks before making pull requests.<br>
+<br>
+**The workflow** should be:
+1. I fork the original project repo on Github.
+2. I clone my fork to my local machine.
+3. I add a remote pointing to the original project repo. This remote is often named upstream.
+4. I make changes and add/commit on a feature branch on my local machine.
+5. I push up my new feature branch to my forked repo, usually called origin.
+6. I open a pull request to the original project repo containing the new work on my forked repo.
+7. Hopefully the pull request is accepted and my changes are merged in.
+
+**A briefer summary**:
+1. Fork the project
+2. Clone the fork
+3. Add upstream remote
+4. Do some work
+5. Push to origin
+6. Open PR
+
