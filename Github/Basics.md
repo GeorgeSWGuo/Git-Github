@@ -123,8 +123,8 @@ To pull, we specify the particular remote and branch we want to pull using **git
 git pull <remote> <branch>
 git pull origin master
 ```
-Note that pulls can result in **merge conflicts**!<br>
-<br>
+> Note that pulls can result in **merge conflicts**!<br>
+  
 If we run **git pull** without specifying a particular remote or branch to pull from, git assumes:
 - remote will default to origin
 - branch will default to whatever tracking connection is configured for your current branch
