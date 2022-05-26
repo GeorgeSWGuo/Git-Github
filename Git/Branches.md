@@ -69,7 +69,11 @@ git merge branch1
 ```
 **Fast Forward**<br>
 Simply caught up<br>
-<br>
+> **Note**: use **"--no-ff"** to avoid fast forward:
+```
+git merge --no-ff branch1
+```
+
 **Not Fast Forward**<br>
 Rather than performing a simple fast forward, Git performs a "merge commit" .<br>
 We end up with **a new commit** on the master branch.
