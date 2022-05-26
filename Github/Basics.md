@@ -96,6 +96,25 @@ git checkout --track origin/pigs
 ```
 
 ## Git Fetch
-Fetching allows us to download changes from a remote repo, but those changes will not be automatically integrated into our working files. It lets you see what others have been working on, without having to merge those changes into your local repo.
+Fetching allows us to download changes from a remote repo, but those changes will not be automatically integrated into our working files. It lets you see what others have been working on, without having to merge those changes into your local repo.<br>
+<br>
+The **git fetch** command fetches branches and history from a specific remote repository. It only updates remote tracking braches.<br>
+**git fetch origin** would fetch all changes from the origin remote repository. If not specified, <remote> defaults to origin.
+```
+git fetch <remote>
+```
+We can also fetch a specific branch from a remote using **git fetch remote branch**. For example, **git fetch origin master** would retrieve the latest information from the master branch on the origin remote repository.
+```
+git fetch <remote> <branch>
+git fetch origin master
+```
+I now have those changes on my machine, but if I want to see them I have to **git checkout origin/master**. My master branch is untouched!
 
+## Pulling
+**git pull** is another command we can use to retrieve changes from a remote repository. Unlike fetch, pull actually updates our HEAD branch with whatever changes are retrieved from the remote.<br>
+<br>
+**git pull = git fetch + git merge**<br>
+- git fetch: update the remote tracking branch with the latest changes from the remote repo
+- git merge: update my current branch with whatever changes are on the remote tracking branch
+<br>
 
