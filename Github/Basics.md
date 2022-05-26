@@ -117,4 +117,28 @@ I now have those changes on my machine, but if I want to see them I have to **gi
 - git fetch: update the remote tracking branch with the latest changes from the remote repo
 - git merge: update my current branch with whatever changes are on the remote tracking branch
 <br>
-
+  
+To pull, we specify the particular remote and branch we want to pull using **git pull remote branch**. Whatever branch we run it from is where the changes will be merged into. For example, **git pull origin master** would fetch the latest information from the origin's master branch and merge those changes into our current branch.
+```
+git pull <remote> <branch>
+git pull origin master
+```
+Note that pulls can result in **merge conflicts**!<br>
+<br>
+If we run **git pull** without specifying a particular remote or branch to pull from, git assumes:
+- remote will default to origin
+- branch will default to whatever tracking connection is configured for your current branch
+<br>
+  
+**git fetch**
+- Gets changes from remote branches
+- Updates the remote-tracking branches with the new changes
+- Does not merge changes onto your current HEAD branch
+- Safe to do at anytime
+<br>
+  
+**git pull**
+- Gets changes from remote branches
+- Updates the current branches with the new changes, merging them in
+- Can result in merge conflicts
+- Not recommended if you have uncommitted changes
