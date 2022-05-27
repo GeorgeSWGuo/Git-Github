@@ -81,5 +81,37 @@ There is a significant difference when it comes to **collaboration**.<br>
 - If you want to reverse some commits that other people already have on their machines, you should use revert.
 - If you want to reverse commits that you haven't shared with others, use reset and no one will ever know.
 
+## Rebasing
+There are tow main ways to use the git rebase command:
+- as an alternative to merging
+- as a cleanup tool
+
+> As an alternative to merging
+
+**Instead of** using a **merge** commit, rebasing rewrites history by **creating new commits** for each of the original feature branch commits.
+```
+git switch feature
+git rebase master
+```
+We get a much cleaner project history. No unnecessary merge commits! We end up with a linear project history.<br>
+**Warning**: Never rebase commits that have been shared with others. You do not want to rewrite any git history that other people already have.
+
+> As a clean tool
+
+**Rewriting History**: Sometimes we want to rewrite , delete, rename, or even reorder commits (before sharing them).<br>
+<br>
+**Interactive Rebase**:<br>
+Running git rebase with the -i option will enter the interactive mode, which allows us to edit commits, add files, drop commits, etc. Note that we need to specify **how far back** we want to rewrite commits.
+```
+git rebase -i HEAD~9
+```
+In our text editor, we'll see a list of commits alongside a list of commands that we can choose from:
+- pick: use the commit
+- reword: use the commit, but edit the commit message
+- edit: use commit, but stop for amending
+- fixup: use commit contents but meld it into previous commit and discard the commit message
+- drop: remove commit
+
+
 
 
