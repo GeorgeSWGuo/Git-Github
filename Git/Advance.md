@@ -141,3 +141,26 @@ Remember that **git cat-file** prints out Git objects. In this example, the **ma
 **Commits:** <br>
 Commits objects combine a tree object along with information about the context that led to the current tree. Commits store a reference to parent commit(s), the author, the commiter, and of course the commit message.
 
+## Global Git Config
+Git looks for the global config file at either **~/.gitconfig** or **~/.config/git/config**. Any configuration variables that we change in the file will be applied across all Git repos.<br>
+We can also alter configuration variables from the command line if preferred.
+
+## Aliases
+We can easily set up Git aliases to make our Git experience a bit simpler and faster.
+```
+[alias]
+    s = status
+    l = log
+```
+We can also set aliases from the command line.
+```
+git config --global alias.s status
+git config --global alias.l log
+```
+Aliases with arguments:
+```
+[alias]
+    cm = commit -m   
+```
+Must have git aliases:<br>
+https://www.durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
