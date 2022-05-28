@@ -66,4 +66,36 @@ Versions consist of **three numbers** seperated by periods, for example 2.4.1:
 
 Typically, the first release is 1.0.0
 
+## Config
+The config file is for configuration. We've seen how to configure global settings like our name and email across all Git repos, but we can also configure things on a **per-repo** basis.
+```
+git config --local user.name "pig"
+git config --email user.name "pig@gmail.com"
+```
+We can also update in the "config" file:
+```
+[color]
+    ui = true
+[color "branch"]
+    local = cyan
+    current = yellow bold
+[color "diff"]
+    old = magenta bold
+```
+
+## Refs
+Inside of refs, you'll find a heads directory. **refs/heads** contains one file per branch in a repository. Each file is named after a branch and contains the hash of the commit at the tip of the branch.
+```
+ls .git/refs
+```
+For example **refs/heads/master** contains the commit hash of the last commit on the master branch.<br>
+Refs also contains a **refs/tags** folder which contains one file for each tag in the repo.
+
+## HEAD
+HEAD is just a text file that keeps track of where HEAD points. If it contains refs/heads/master, this means that HEAD is pointing to the master branch.<br>
+In detached HEAD, the HEAD file contains a commit hash instead of a branch reference.
+
+## Objects
+The objects directory contains all the repo files. This is where Git stores the backups of files, the commits in a repo, and more.<br>
+The files are all compressed and encrypted, so they won't look like much.
 
