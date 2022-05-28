@@ -99,3 +99,29 @@ In detached HEAD, the HEAD file contains a commit hash instead of a branch refer
 The objects directory contains all the repo files. This is where Git stores the backups of files, the commits in a repo, and more.<br>
 The files are all compressed and encrypted, so they won't look like much.
 
+## SHA-1
+Git uses a hashing function called SHA-1 (this is set to change eventually).<br>
+SHA-1 always generates 40-digit hexadecimal numbers.<br>
+The commit hashes we've seen a million times are the output of SHA-1.
+
+## Git Database
+Git is a **key-value data store**. We can insert any kind of content into a Git repository, and Git will hand us back a unique key we can later use to retrieve that content. These keys that we get back are SHA-1 checksums.<br>
+<br>
+The **git hash-object** command takes some data, stores in our .git/objects directory and gives us back the unique SHA-1 hash that refers to that data object.<br>
+In the simplest form, Git simply takes some content and returns the unique key that would be used to store our object. But it does not actually store anything.
+```
+git hash-object <file>
+git hash-object pigs.txt
+echo 'hello' | git hash-object --stdin
+```
+Rather than simply outputting the key that git would store our object under, we can use the **-w** option to tell git to actually write the object to the database.
+```
+git hash-object pigs.txt -w
+echo 'hello' | git hash-object --stdin -w
+```
+Now that we have data stored in our Git object database, we can try retrieving it using the **git cat-file** command.<br>
+The **-t** option tells Git to return the type of the object. The **-p** option tells Git to print the contents of the object based on its type.
+```
+git cat-file -t <object-hash>
+git cat-file -p <object-hash>
+```
