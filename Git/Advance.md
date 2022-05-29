@@ -141,6 +141,40 @@ Remember that **git cat-file** prints out Git objects. In this example, the **ma
 **Commits:** <br>
 Commits objects combine a tree object along with information about the context that led to the current tree. Commits store a reference to parent commit(s), the author, the commiter, and of course the commit message.
 
+## Reflogs
+Git keeps a record of when the tips of branches and other references were updated in the repo. We can view and update these reference logs using the **git reflog** command.<br>
+The git reflog command accepts subcommands **show, expire, delete**, and **exists**. **Show** is the only command used variant, and it is the default subcommand. **git reflog show** will show the log of a specific reference (it defaults to HEAD).
+```
+git reflog show HEAD
+git reflog show main
+```
+**Limitation**:<br>
+- Git only keeps reflogs on your **local** activity. They are not shared with collaborators.
+- Reflogs also expire. Git cleans out old entries after around 90 days, though this can be configured.
+
+## Reflog References
+We can access specific git refs using **name@{qualifier}**. We can use this syntax to access specific ref pointers and can pass them to other commands including checkout, reset, merge.<br>
+Every entry in the reference logs has a **timestamp** associated with it. We can filter reflogs entries by time/date by using time qualifiers like:
+```
+git reflog master@{one.week.ago}
+git checkout bugfix@{2.days.ago}
+git diff main@{0} main@{yesterday}
+```
+
+## Reflogs Rescue
+We can sometimes use reflog entries to access commits that seem lost and are not appearing in git log.<br>
+**Undo a reset**:
+```
+git reset --hard <commit>
+git reflog show master
+git reset --hard master@{1}
+```
+**Undo a rebase**:
+```
+git reset --hard <commit>
+```
+The commit could be a commit that has been rebased.
+
 ## Global Git Config
 Git looks for the global config file at either **~/.gitconfig** or **~/.config/git/config**. Any configuration variables that we change in the file will be applied across all Git repos.<br>
 We can also alter configuration variables from the command line if preferred.
